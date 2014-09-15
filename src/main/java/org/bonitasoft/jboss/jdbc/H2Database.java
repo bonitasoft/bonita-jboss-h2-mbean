@@ -1,4 +1,4 @@
-/**                                                                                                                   
+/**
  * Copyright (C) 2013 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
@@ -14,45 +14,41 @@
 package org.bonitasoft.jboss.jdbc;
 
 import org.h2.tools.Server;
-import org.jboss.system.ServiceMBeanSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
-public class H2Database extends ServiceMBeanSupport implements H2DatabaseMBean {
+public class H2Database implements H2DatabaseMBean {
+
+    private final Logger log = LoggerFactory.getLogger(H2Database.class);
 
     private String args = "";
-    
+
     private Server h2Server;
-    
+
+    @Override
     public String getArgs() {
         return args;
     }
-    
-    public void setArgs(String args) {
+
+    @Override
+    public void setArgs(final String args) {
         this.args = args;
     }
-    
-    // ServiceMBeanSupport methods
-    
-    protected void createService() throws Exception {
+
+    protected void start() throws Exception {
+        log.info("Start H2 server");
         log.info("Create H2 server with the following arguments " + args);
         h2Server = Server.createTcpServer(args.split(" "));
-        
-        h2Server.setOut(System.err);
-    }
 
-    protected void startService() throws Exception {
-        log.info("Start H2 server");
+        h2Server.setOut(System.err);
         h2Server.start();
     }
 
-    protected void stopService() throws Exception {
+    protected void stop() throws Exception {
         log.info("Stopping H2 server");
         h2Server.shutdown();
-    }
-
-    protected void destroyService() throws Exception {
         h2Server = null;
     }
-
 
 }

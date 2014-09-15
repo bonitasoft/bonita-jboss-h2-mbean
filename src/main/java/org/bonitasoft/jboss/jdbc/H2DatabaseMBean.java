@@ -1,4 +1,4 @@
-/**                                                                                                                   
+/**
  * Copyright (C) 2013 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
@@ -13,10 +13,9 @@
  **/
 package org.bonitasoft.jboss.jdbc;
 
-import org.jboss.system.ServiceMBean;
 
 
-public interface H2DatabaseMBean extends ServiceMBean {
+public interface H2DatabaseMBean {
 
     String getArgs();
     void setArgs(String args);
