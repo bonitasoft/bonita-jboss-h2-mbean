@@ -2,13 +2,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.bonitasoft.jboss</groupId>
     <artifactId>bonita-jboss-h2-mbean</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
 
     <scm>
         <connection>scm:git:git@github.com:bonitasoft/bonita-jboss-h2-mbean.git</connection>
         <developerConnection>scm:git:git@github.com:bonitasoft/bonita-jboss-h2-mbean.git</developerConnection>
         <url>https://github.com/bonitasoft/bonita-jboss-h2-mbean</url>
-      <tag>HEAD</tag>
+      <tag>1.1.1</tag>
   </scm>
 
     <organization>
